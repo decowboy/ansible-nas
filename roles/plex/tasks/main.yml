@@ -9,6 +9,8 @@
       with_items:
         - "{{ plex_config_directory }}"
         - "{{ plex_logs }}"
+        - "{{ fasttemp_root }}/plex"
+        - "{{ fasttemp_root }}/plex/transcoder"
 
     - name: Create Plex Docker Container
       community.docker.docker_container:
@@ -24,6 +26,7 @@
           - "{{ plex_podcasts_directory }}:/podcasts:{{ plex_podcasts_permissions }}"
           - "{{ plex_music_directory }}:/music:{{ plex_music_permissions }}"
           - "{{ plex_audiobooks_directory }}:/audiobooks:{{ plex_audiobooks_permissions }}"
+          - "{{ fasttemp_root }}/plex:/fasttemp:rw"
         network_mode: "host"
         runtime: "nvidia"
         devices: "{{ plex_devices | default(omit) }}"
