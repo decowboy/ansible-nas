@@ -32,7 +32,9 @@
           traefik.http.routers.tautulli.tls.certresolver: "letsencrypt"
           traefik.http.routers.tautulli.tls.domains[0].main: "{{ ansible_nas_domain }}"
           traefik.http.routers.tautulli.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+          traefik.http.routers.nzbget.middlewares: "tautulliwhitelist"
           traefik.http.services.tautulli.loadbalancer.server.port: "8181"
+          traefik.http.middlewares.tautulliwhitelist.ipwhitelist.sourcerange: "{{ private_whitelist }}"
   when: tautulli_enabled is true
 
 - name: Stop Tautulli
