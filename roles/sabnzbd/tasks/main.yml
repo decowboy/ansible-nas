@@ -7,6 +7,7 @@
         state: directory
       with_items:
         - "{{ sabnzbd_data_directory }}"
+        - "{{ fasttemp_root }}/sabnzbd"
 
     - name: Sabnzbd
       community.docker.docker_container:
@@ -17,6 +18,7 @@
           - "{{ sabnzbd_data_directory }}:/config:rw"
           - "{{ sabnzbd_downloads_directory }}:/downloads"
           - "{{ sabnzbd_incomplete_directory }}:/incomplete-downloads"
+          - "{{ fasttemp_root }}/sabnzbd:/fasttemp:rw"
         ports:
           - "{{ sabnzbd_port }}:8080"
         env:
@@ -30,7 +32,9 @@
           traefik.http.routers.sabnzbd.tls.certresolver: "letsencrypt"
           traefik.http.routers.sabnzbd.tls.domains[0].main: "{{ ansible_nas_domain }}"
           traefik.http.routers.sabnzbd.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+          traefik.http.routers.nzbget.middlewares: "sabnzbdwhitelist"
           traefik.http.services.sabnzbd.loadbalancer.server.port: "8080"
+          traefik.http.middlewares.sabnzbdwhitelist.ipwhitelist.sourcerange: "{{ private_whitelist }}"
   when: sabnzbd_enabled is true
 
 - name: Stop Sabnzbd
