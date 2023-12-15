@@ -8,6 +8,7 @@
       with_items:
         - "{{ sabnzbd_data_directory }}"
         - "{{ fasttemp_root }}/sabnzbd"
+        - "{{ fasttemp_root }}/sabnzbd/incomplete"
 
     - name: Sabnzbd
       community.docker.docker_container:
