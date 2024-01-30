@@ -19,6 +19,7 @@
           - "{{ sabnzbd_data_directory }}:/config:rw"
           - "{{ sabnzbd_downloads_directory }}:/downloads"
           - "{{ sabnzbd_incomplete_directory }}:/incomplete-downloads"
+          - "{{ plex_sports_directory }}:/sports:rw"
           - "{{ fasttemp_root }}/sabnzbd:/fasttemp:rw"
         ports:
           - "{{ sabnzbd_port }}:8080"
