@@ -26,7 +26,7 @@
           - "{{ plex_podcasts_directory }}:/podcasts:{{ plex_podcasts_permissions }}"
           - "{{ plex_music_directory }}:/music:{{ plex_music_permissions }}"
           - "{{ plex_audiobooks_directory }}:/audiobooks:{{ plex_audiobooks_permissions }}"
-          - "{{ plex_sports_directory }}:/tv:{{ plex_sports_permissions }}"
+          - "{{ plex_sports_directory }}:/sports:{{ plex_sports_permissions }}"
           - "{{ fasttemp_root }}/plex:/fasttemp:rw"
         network_mode: "host"
         runtime: "nvidia"
