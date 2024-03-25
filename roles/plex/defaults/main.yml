@@ -4,8 +4,6 @@ plex_available_externally: false
 
 # directories
 plex_config_directory: "{{ docker_home }}/plex/config"
-plex_logs: "{{ docker_home }}/plex/logs"
-plex_plugins: "{{ docker_home }}/plex/plugins"
 plex_movies_directory: "{{ movies_root }}"
 plex_tv_directory: "{{ tv_root }}"
 plex_photos_directory: "{{ photos_root }}"
