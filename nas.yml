@@ -422,6 +422,10 @@
       tags:
         - ubooquity
 
+    - role: unmanic
+      tags:
+        - unmanic
+
     - role: utorrent
       tags:
         - utorrent
