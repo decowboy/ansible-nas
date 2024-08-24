@@ -30,6 +30,7 @@
         restart_policy: unless-stopped
         memory: "{{ unmanic_memory }}"
         labels:
+          traefik.enable: "{{ unmanic_available_externally | string }}"
           traefik.http.routers.unmanic.rule: "Host(`{{ unmanic_hostname }}.{{ ansible_nas_domain }}`)"
           traefik.http.routers.unmanic.tls.certresolver: "letsencrypt"
           traefik.http.routers.unmanic.tls.domains[0].main: "{{ ansible_nas_domain }}"
