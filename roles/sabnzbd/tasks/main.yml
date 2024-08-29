@@ -34,7 +34,7 @@
           traefik.http.routers.sabnzbd.tls.certresolver: "letsencrypt"
           traefik.http.routers.sabnzbd.tls.domains[0].main: "{{ ansible_nas_domain }}"
           traefik.http.routers.sabnzbd.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
-          traefik.http.routers.nzbget.middlewares: "sabnzbdwhitelist"
+          traefik.http.routers.sabnzbd.middlewares: "sabnzbdwhitelist"
           traefik.http.services.sabnzbd.loadbalancer.server.port: "8080"
           traefik.http.middlewares.sabnzbdwhitelist.ipwhitelist.sourcerange: "{{ private_whitelist }}"
   when: sabnzbd_enabled is true
