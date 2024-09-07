@@ -16,9 +16,9 @@
         pull: true
         volumes:
           - "{{ unmanic_data_directory }}:/config:rw"
-          - "{{ unmanic_tv_directory }}:/tv:rw"
-          - "{{ unmanic_movies_directory }}:/movies:rw"
-          - "{{ unmanic_sports_directory }}:/sports:rw"
+          - "{{ unmanic_tv_directory }}:/library/tv:rw"
+          - "{{ unmanic_movies_directory }}:/library/movies:rw"
+          - "{{ unmanic_sports_directory }}:/library/sports:rw"
           - "{{ fasttemp_root }}/unmanic/cache:/tmp/unmanic:rw"
         ports:
           - "{{ unmanic_port }}:8888"
