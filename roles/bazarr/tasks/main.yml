@@ -33,7 +33,7 @@
           traefik.http.routers.bazarr.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
           traefik.http.routers.bazarr.middlewares: "bazarrwhitelist"
           traefik.http.services.bazarr.loadbalancer.server.port: "6767"
-          traefik.http.middlewares.bazarrwhitelist.ipwhitelist.sourcerange: "{{ private_whitelist }}"
+          traefik.http.middlewares.bazarrwhitelist.ipallowlist.sourcerange: "{{ private_whitelist }}"
           homepage.group: Download Tools
           homepage.name: Bazarr
           homepage.icon: bazarr.png

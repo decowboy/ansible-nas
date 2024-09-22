@@ -34,7 +34,7 @@
           traefik.http.routers.portainer.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
           traefik.http.services.portainer.loadbalancer.server.port: "9000"
           traefik.http.routers.portainer.middlewares: "portainerwhitelist"
-          traefik.http.middlewares.portainerwhitelist.ipwhitelist.sourcerange: "{{ private_whitelist }}"
+          traefik.http.middlewares.portainerwhitelist.ipallowlist.sourcerange: "{{ private_whitelist }}"
   when: portainer_enabled is true
 
 - name: Stop Portainer

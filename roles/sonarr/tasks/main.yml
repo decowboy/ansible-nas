@@ -33,7 +33,7 @@
           traefik.http.routers.sonarr.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
           traefik.http.routers.sonarr.middlewares: "sonarrwhitelist"
           traefik.http.services.sonarr.loadbalancer.server.port: "8989"
-          traefik.http.middlewares.sonarrwhitelist.ipwhitelist.sourcerange: "{{ private_whitelist }}"
+          traefik.http.middlewares.sonarrwhitelist.ipallowlist.sourcerange: "{{ private_whitelist }}"
   when: sonarr_enabled is true
 
 - name: Stop Sonarr

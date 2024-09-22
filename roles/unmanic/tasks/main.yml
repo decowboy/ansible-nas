@@ -38,7 +38,7 @@
           traefik.http.routers.unmanic.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
           traefik.http.routers.unmanic.middlewares: "unmanicwhitelist"
           traefik.http.services.unmanic.loadbalancer.server.port: "8888"
-          traefik.http.middlewares.unmanicwhitelist.ipwhitelist.sourcerange: "{{ private_whitelist }}"
+          traefik.http.middlewares.unmanicwhitelist.ipallowlist.sourcerange: "{{ private_whitelist }}"
   when: unmanic_enabled is true
 
 - name: Stop Unmanic
