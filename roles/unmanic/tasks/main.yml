@@ -9,6 +9,7 @@
         - "{{ unmanic_data_directory }}"
         - "{{ unmanic_imports_directory }}/tv"
         - "{{ unmanic_imports_directory }}/movies"
+        - "{{ unmanic_imports_directory }}/cache"
         - "{{ fasttemp_root }}/unmanic/cache"
 
     - name: Unmanic
