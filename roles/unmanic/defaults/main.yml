@@ -5,7 +5,6 @@ unmanic_available_externally: false
 # directories
 unmanic_data_directory: "{{ docker_home }}/unmanic/config"
 unmanic_downloads_directory: "{{ downloads_root }}"
-unmanic_imports_directory: "{{ imports_root }}"
 
 # uid/gid
 unmanic_user_id: "0"

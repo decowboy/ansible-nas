@@ -7,10 +7,9 @@
         state: directory
       with_items:
         - "{{ unmanic_data_directory }}"
-        - "{{ unmanic_imports_directory }}/tv"
-        - "{{ unmanic_imports_directory }}/movies"
-        - "{{ unmanic_imports_directory }}/cache"
-        - "{{ fasttemp_root }}/unmanic/cache"
+        - "{{ unmanic_downloads_directory }}/tv"
+        - "{{ unmanic_downloads_directory }}/movies"
+        - "{{ unmanic_downloads_directory }}/cache"
 
     - name: Unmanic
       community.docker.docker_container:
@@ -20,8 +19,6 @@
         volumes:
           - "{{ unmanic_data_directory }}:/config:rw"
           - "{{ unmanic_downloads_directory }}:/downloads:rw"
-          - "{{ unmanic_imports_directory }}:/imports:rw"
-          - "{{ fasttemp_root }}/unmanic/cache:/tmp/unmanic:rw"
         ports:
           - "{{ unmanic_port }}:8888"
         env:

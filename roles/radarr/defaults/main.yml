@@ -4,7 +4,7 @@ radarr_available_externally: false
 
 # directories
 radarr_movies_directory: "{{ movies_root }}"
-radarr_download_directory: "{{ imports_root }}/movies"
+radarr_download_directory: "{{ downloads_root }}/movies"
 radarr_data_directory: "{{ docker_home }}/radarr"
 
 # uid / gid
