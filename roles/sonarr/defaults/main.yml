@@ -5,7 +5,7 @@ sonarr_available_externally: false
 # directories
 sonarr_data_directory: "{{ docker_home }}/sonarr/config"
 sonarr_tv_directory: "{{ tv_root }}"
-sonarr_download_directory: "{{ downloads_root }}"
+sonarr_download_directory: "{{ imports_root }}/tv"
 
 # uid / gid
 sonarr_user_id: "0"

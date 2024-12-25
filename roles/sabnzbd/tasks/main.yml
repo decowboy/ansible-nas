@@ -7,8 +7,10 @@
         state: directory
       with_items:
         - "{{ sabnzbd_data_directory }}"
+        - "{{ sabnzbd_downloads_directory }}/tv"
+        - "{{ sabnzbd_downloads_directory }}/movies"
+        - "{{ sabnzbd_downloads_directory }}/incomplete"
         - "{{ fasttemp_root }}/sabnzbd"
-        - "{{ fasttemp_root }}/sabnzbd/incomplete"
 
     - name: Sabnzbd
       community.docker.docker_container:
@@ -17,8 +19,7 @@
         pull: true
         volumes:
           - "{{ sabnzbd_data_directory }}:/config:rw"
-          - "{{ sabnzbd_downloads_directory }}:/downloads"
-          - "{{ sabnzbd_incomplete_directory }}:/incomplete-downloads"
+          - "{{ sabnzbd_downloads_directory }}:/downloads:rw"
           - "{{ plex_sports_directory }}:/sports:rw"
           - "{{ fasttemp_root }}/sabnzbd:/fasttemp:rw"
         ports:

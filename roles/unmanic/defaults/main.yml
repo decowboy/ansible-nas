@@ -4,9 +4,8 @@ unmanic_available_externally: false
 
 # directories
 unmanic_data_directory: "{{ docker_home }}/unmanic/config"
-unmanic_tv_directory: "{{ tv_root }}"
-unmanic_movies_directory: "{{ movies_root }}"
-unmanic_sports_directory: "{{ sports_root }}"
+unmanic_downloads_directory: "{{ downloads_root }}"
+unmanic_imports_directory: "{{ imports_root }}"
 
 # uid/gid
 unmanic_user_id: "0"
