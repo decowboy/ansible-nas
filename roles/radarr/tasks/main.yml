@@ -38,6 +38,10 @@
           homepage.name: "Radarr"
           homepage.icon: "radarr"
           homepage.href: "http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}:{{ radarr_port }}"
+          
+    - name: Apply ionice to Radarr Container
+      ansible.builtin.shell:
+        cmd: ionice -c3 -p $(docker inspect --format '{{ "{{.State.Pid}}" }}' {{ radarr_container_name }})
 
   when: radarr_enabled is true
 
