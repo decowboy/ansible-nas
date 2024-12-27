@@ -41,7 +41,11 @@
           
     - name: Apply ionice to Unmanic Container
       ansible.builtin.command:
+<<<<<<< HEAD
         cmd: ionice -c3 -p $(docker inspect --format '{{ "{{.State.Pid}}" }}' {{ unmanic_container_name }})
+=======
+        cmd: ionice -c3 -p $(docker inspect --format '{{.State.Pid}}' {{ unmanic_container_name }})
+>>>>>>> remotes/origin/master
         
   when: unmanic_enabled is true
 
