@@ -38,6 +38,11 @@
           traefik.http.routers.unmanic.middlewares: "unmanicwhitelist"
           traefik.http.services.unmanic.loadbalancer.server.port: "8888"
           traefik.http.middlewares.unmanicwhitelist.ipallowlist.sourcerange: "{{ private_whitelist }}"
+          
+    - name: Apply ionice to Unmanic Container
+      ansible.builtin.command:
+        cmd: ionice -c3 -p $(docker inspect --format '{{.State.Pid}}' {{ unmanic_container_name }})
+        
   when: unmanic_enabled is true
 
 - name: Stop Unmanic
