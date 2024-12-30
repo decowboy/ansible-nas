@@ -44,6 +44,11 @@
           traefik.http.routers.nzbget.middlewares: "nzbgetwhitelist"
           traefik.http.services.nzbget.loadbalancer.server.port: "6789"
           traefik.http.middlewares.nzbgetwhitelist.ipallowlist.sourcerange: "{{ private_whitelist }}"
+          
+    - name: Apply ionice to NZBget Container
+      ansible.builtin.shell:
+        cmd: ionice -c3 -p $(docker inspect --format '{{ "{{.State.Pid}}" }}' {{ nzbget_container_name }})
+        
   when: nzbget_enabled is true
 
 - name: Stop NZBget
