@@ -16,6 +16,7 @@ unmanic_hostname: "unmanic"
 
 # specs
 unmanic_memory: 1g
+unmanic_cpu_shares: "128"
 
 # docker
 unmanic_container_name: unmanic

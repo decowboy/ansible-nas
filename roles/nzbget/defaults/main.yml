@@ -21,3 +21,4 @@ nzbget_image_version: "latest"
 
 # specs
 nzbget_memory: "1g"
+nzbget_cpu_shares: "128"
