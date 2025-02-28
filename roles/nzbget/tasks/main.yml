@@ -7,6 +7,11 @@
         state: directory
       with_items:
         - "{{ nzbget_data_directory }}"
+        - "{{ nzbget_data_directory }}/scripts"
+        - "{{ nzbget_download_directory }}/complete"
+        - "{{ nzbget_download_directory }}/tv"
+        - "{{ nzbget_download_directory }}/movies"
+        - "{{ nzbget_download_directory }}/intermediate"
 
     - name: NZBGet
       community.docker.docker_container:

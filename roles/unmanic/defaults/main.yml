@@ -1,0 +1,25 @@
+---
+unmanic_enabled: false
+unmanic_available_externally: false
+
+# directories
+unmanic_data_directory: "{{ docker_home }}/unmanic/config"
+unmanic_downloads_directory: "{{ downloads_root }}"
+
+# uid/gid
+unmanic_user_id: "0"
+unmanic_group_id: "0"
+
+# network
+unmanic_port: "8888"
+unmanic_hostname: "unmanic"
+
+# specs
+unmanic_memory: 1g
+unmanic_cpu_shares: "128"
+
+# docker
+unmanic_container_name: unmanic
+unmanic_image_name: "josh5/unmanic"
+unmanic_image_version: "latest"
+
