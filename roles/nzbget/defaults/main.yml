@@ -5,6 +5,7 @@ nzbget_available_externally: false
 # directories
 nzbget_data_directory: "{{ docker_home }}/nzbget"
 nzbget_download_directory: "{{ downloads_root }}"
+nzbget_temp_directory: "{{ temp_root }}/nzbget"
 
 # uid / gid
 nzbget_user_id: "0"

@@ -12,6 +12,9 @@
         - "{{ nzbget_download_directory }}/tv"
         - "{{ nzbget_download_directory }}/movies"
         - "{{ nzbget_download_directory }}/intermediate"
+        - "{{ nzbget_temp_directory }}/tmp"
+        - "{{ nzbget_temp_directory }}/queue"
+        - "{{ nzbget_temp_directory }}/nzb"
 
     - name: NZBGet
       community.docker.docker_container:
@@ -21,6 +24,7 @@
         volumes:
           - "{{ nzbget_download_directory }}:/downloads:rw"
           - "{{ nzbget_data_directory }}:/config:rw"
+          - "{{ nzbget_temp_directory }}:/temp:rw"
         ports:
           - "{{ nzbget_port }}:6789"
         env:
