@@ -381,6 +381,10 @@
       tags:
         - speedtest-tracker
 
+    - role: spotweb
+      tags:
+        - spotweb
+
     - role: stats
       tags:
         - stats
