@@ -21,12 +21,11 @@
           - "{{ unmanic_downloads_directory }}:/downloads:rw"
         ports:
           - "{{ unmanic_port }}:8888"
+        devices: "{{ unmanic_devices | default(omit) }}"
         env:
           TZ: "{{ ansible_nas_timezone }}"
           PUID: "{{ unmanic_user_id }}"
           PGID: "{{ unmanic_group_id }}"
-          NVIDIA_VISIBLE_DEVICES: "all"
-        runtime: "nvidia"
         restart_policy: unless-stopped
         memory: "{{ unmanic_memory }}"
         cpu_shares: "{{ unmanic_cpu_shares }}"
