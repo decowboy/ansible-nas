@@ -33,7 +33,7 @@
           PGID: "{{ nzbget_group_id }}"
         restart_policy: unless-stopped
         memory: "{{ nzbget_memory }}"
-        entrypoint: "sh -c 'apk add --no-cache file && pip install python-magic && exec /init'"
+        entrypoint: ["/bin/sh", "-c", "apk add --no-cache file && pip install python-magic && exec /init"]
         labels:
           traefik.enable: "{{ nzbget_available_externally | string }}"
           traefik.http.routers.nzbget.rule: "Host(`{{ nzbget_hostname }}.{{ ansible_nas_domain }}`)"
