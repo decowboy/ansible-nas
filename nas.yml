@@ -433,6 +433,10 @@
       tags:
         - unmanic
 
+    - role: updatetool
+      tags:
+        - updatetool
+
     - role: utorrent
       tags:
         - utorrent

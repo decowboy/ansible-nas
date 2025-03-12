@@ -1,0 +1,22 @@
+---
+updatetool_enabled: false
+
+# directories
+updatetool_data_directory: "{{ plex_config_directory }}/Library/Application Support/Plex Media Server"
+updatetool_config_directory: "{{ docker_home }}/updatetool"
+
+# api keys
+updatetool_tmdb_api_key: ""
+updatetool_tvdb_api_key: ""
+
+# uid / gid
+updatetool_user_id: "0"
+updatetool_group_id: "0"
+
+# docker
+updatetool_container_name: "updatetool"
+updatetool_image_name: "mynttt/updatetool"
+updatetool_image_version: "latest"
+
+# specs
+updatetool_memory: 1g

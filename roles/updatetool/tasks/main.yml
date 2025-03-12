@@ -1,0 +1,37 @@
+---
+- name: Start UpdateTool
+  block:
+    - name: Create UpdateTool Directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - "{{ updatetool_data_directory }}"
+        - "{{ updatetool_config_directory }}"
+
+    - name: UpdateTool Docker Container
+      community.docker.docker_container:
+        name: "{{ updatetool_container_name }}"
+        image: "{{ updatetool_image_name }}:{{ updatetool_image_version }}"
+        pull: true
+        volumes:
+          - "{{ updatetool_data_directory }}:/plexdata:rw"
+          - "{{ updatetool_config_directory }}:/config:rw"
+        env:
+          TZ: "{{ ansible_nas_timezone }}"
+          PUID: "{{ updatetool_user_id }}"
+          PGID: "{{ updatetool_group_id }}"
+          TMDB_API_KEY: "{{ updatetool_tmdb_api_key}}"
+          TVDB_API_KEY: "{{ updatetool_tvdb_api_key}}"
+        restart_policy: unless-stopped
+        memory: "{{ updatetool_memory }}"
+
+  when: updatetool_enabled is true
+
+- name: Stop UpdateTool
+  block:
+    - name: Stop UpdateTool
+      community.docker.docker_container:
+        name: "{{ updatetool_container_name }}"
+        state: absent
+  when: radarr_enabled is false
