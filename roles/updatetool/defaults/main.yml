@@ -6,6 +6,7 @@ updatetool_data_directory: "{{ plex_config_directory }}/Library/Application Supp
 updatetool_config_directory: "{{ docker_home }}/updatetool"
 
 # api keys
+updatetool_unlock_for_new_tv_agent: ""
 updatetool_tmdb_api_key: ""
 updatetool_tvdb_api_key: ""
 
