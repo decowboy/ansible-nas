@@ -10,7 +10,7 @@
         - "{{ unmanic_downloads_directory }}/tv"
         - "{{ unmanic_downloads_directory }}/movies"
         - "{{ unmanic_downloads_directory }}/cache"
-
+        - "{{ fasttemp_root }}/unmanic"
     - name: Unmanic
       community.docker.docker_container:
         name: "{{ unmanic_container_name }}"
@@ -19,6 +19,7 @@
         volumes:
           - "{{ unmanic_data_directory }}:/config:rw"
           - "{{ unmanic_downloads_directory }}:/downloads:rw"
+          - "{{ fasttemp_root }}/unmanic:/fasttemp:rw"
         ports:
           - "{{ unmanic_port }}:8888"
         env:
